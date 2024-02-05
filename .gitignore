@@ -1,0 +1,9 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore environment configuration files with secrets
+.env
+config.json
+
+# Ignore build artifacts
+
