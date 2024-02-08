@@ -9,6 +9,7 @@ Certainly! Here's a basic blank HTML page template for you:
     <title>Live demo test</title>
 </head>
 <body>
+    
     <head>Add a city</head>
     <form id="addCity">
         <label for= "cityName">City Name </label>
@@ -21,9 +22,50 @@ Certainly! Here's a basic blank HTML page template for you:
         <input type="text" id="regionName" name= "Region Name" required>
         <br>
         <input type="submit" value= "Submit">
-        
-
     </form>
+
+    <form id="setCharacter">
+        <h8> Set Character</h1>
+        <label for="Name">Name</label>
+        <input id="setName" required>
+        <br>
+        <h8> Set Rating</h1>
+        <label for="Rating">Rating</label>
+        <input id="setRating" required>
+        <br>
+        <h8> Set Year</h1>
+        <label for="Year">Year</label>
+        <input id="setYear" required>
+        <br>
+        <h8> Set ID</h1>
+        <label for="ID">ID</label>
+        <input id="setID" required>
+        <br>
+        <input type="submit" value= "Set Character">
+    </form>
+
+    <form id="UpdateCharacter">
+        <h8> Update Name</h8>
+        <label for="id">ID</label>
+        <input id="id" required>
+        <b>
+        <h8>name</h8>
+        <label for="Name">Name</label>
+        <input id="Name" required>
+        <br>
+        <input type="submit" value= "Update Name">
+    </form>
+
+    <form id="DeleteCharacter">
+        <h8> Delete Character</h1>
+        <label for="id">ID</label>
+        <input id="id" required>
+        <b>
+        <input type="submit" value= "Delete Name">
+    </form>
+
+
+
     <!-- Your content goes here -->
     <h1>This is a test</h1>
     <script src="bundle.js"></script>

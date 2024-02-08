@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {collection, getFirestore, addDoc, doc} from "firebase/firestore";
+import {collection, getFirestore, addDoc, doc, setDoc, updateDoc, deleteDoc} from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +22,7 @@ const db = getFirestore(app)
 
 //Create a reference variable to the collection
 const cityCol = collection(db,"cities")
+const charCol = collection(db,"characters")
 
 
 
@@ -46,6 +47,64 @@ addCityForm.addEventListener("submit",(event)=>{
     })
 })
 
+//Set a document
+const setForm = document.querySelector("#SetCharacter")
 
+setForm.addEventListener("submit",(event)=>{
+  event.preventDefault()
+
+  const tempCharacter = {
+    name: setForm.setName.value,
+    rating: setForm.setRating.value,
+    year: setForm.setYear.value,
+    id: setForm.setID.value
+  }
+
+  const tempDoc = doc(db, "characters", tempCharacter.id)
+
+  setDoc(tempDoc, tempCharacter)
+  .then(()=>{
+    console.log("Doc Set")
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
+})
+
+//Update Document
+const updateForm = document.querySelector("#UpdateCharacter")
+
+updateForm.addEventListener("submit", (event)=>{
+  event.preventDefault()
+  const myDoc = doc(db, "characters",updateForm.id.value)
+  updateDoc(myDoc, {
+      name: updateForm.Name.value
+  })
+  .then(()=>{
+    console.log("Doc Updated")
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
+})
+
+//Delete Character
+const deleteCharacterForm = document.querySelector('#DeleteCharacter')
+
+deleteCharacterForm.addEventListener("submit",(event)=>{
+  event.preventDefault()
+
+  const charID = deleteCharacterForm.id.value
+  const charRef = doc(charCol, charID)
+
+  deleteDoc(charRef)
+  .then(()=>{
+    console.log("Document Deleted")
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
+
+})
 
 
